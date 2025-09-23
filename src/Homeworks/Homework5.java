@@ -3,7 +3,7 @@ package Homeworks;
 
 public class Homework5 {
     public static void main(String[] args) {
-        int[] numbers = {3, 4, 16, 74, 9, 6, 2, 22, 11, 33};
+        int[] numbers = {4,7,1,3,9,0,2};
 
         for (int i = 0; i < numbers.length - 1; i++) {
             int minIndex = i;
