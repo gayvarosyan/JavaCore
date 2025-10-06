@@ -1,4 +1,4 @@
-package Classworks;
+package Classworks.breakExamples;
 
 public class MissingBreak {
     public static void main(String[] args) {

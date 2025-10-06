@@ -1,4 +1,4 @@
-package Classworks;
+package Classworks.breakExamples;
 
 public class BreakLoop {
     public static void main(String[] args) {

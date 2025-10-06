@@ -1,4 +1,4 @@
-package Classworks;
+package Classworks.forEachExamples;
 
 public class ForEach3 {
     public static void main(String[] args) {
