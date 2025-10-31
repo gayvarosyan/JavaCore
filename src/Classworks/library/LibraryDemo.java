@@ -1,18 +1,16 @@
 package Classworks.library;
 
+import Classworks.library.model.Book;
+import Classworks.library.storage.BookStorage;
+
 import java.util.Scanner;
 
-public class LibraryDemo {
+public class LibraryDemo implements Commands {
+
     private static Scanner scanner = new Scanner(System.in);
     private static BookStorage bookStorage = new BookStorage();
 
-    private static final String EXIT = "0";
-    private static final String ADD_BOOK = "1";
-    private static final String PRINT_ALL_BOOKS = "2";
-    private static final String SEARCH_BOOK_BY_TITLE = "3";
-    private static final String PRINT_EXPENSIVE_BOOK = "4";
-    private static final String DELETE_BOOK_BY_ID = "5";
-    private static final String SEARCH_BY_PRICE_RANGE = "6";
+
 
 
     public static void main(String[] args) {
@@ -20,7 +18,7 @@ public class LibraryDemo {
         boolean isRun = true;
 
         while (isRun) {
-            printCommands();
+           Commands.printCommands();
             String command = scanner.nextLine();
             switch (command) {
                 case EXIT:
@@ -88,14 +86,7 @@ public class LibraryDemo {
     }
 
 
-    private static void printCommands() {
-        System.out.println("Please input " + EXIT + " for EXIT");
-        System.out.println("Please input " + ADD_BOOK + " for ADD BOOK");
-        System.out.println("Please input " + PRINT_ALL_BOOKS + " for PRINT ALL BOOKS");
-        System.out.println("Please input " + SEARCH_BOOK_BY_TITLE + " for SEARCH BOOK BY TITLE");
-        System.out.println("Please input " + PRINT_EXPENSIVE_BOOK + " for PRINT EXPENSIVE BOOK");
-        System.out.println("Please input " + DELETE_BOOK_BY_ID + " for DELETE BOOK");
-        System.out.println("Please input " + SEARCH_BY_PRICE_RANGE + " for SEARCH BOOKS BY PRICE RANGE");
+
     }
 }
 

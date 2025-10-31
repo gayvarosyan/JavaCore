@@ -1,4 +1,4 @@
-package Classworks.library;
+package Classworks.library.model;
 
 import java.util.Objects;
 

@@ -1,4 +1,6 @@
-package Classworks.library;
+package Classworks.library.storage;
+
+import Classworks.library.model.Book;
 
 public class BookStorage {
 
