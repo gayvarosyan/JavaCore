@@ -10,17 +10,19 @@ public class Employee {
     private double salary;
     private String company;
     private String position;
+    private PositionLevel level;
 
     public Employee() {
     }
 
-    public Employee(String name, String surname, String employeeID, double salary, String company, String position) {
+    public Employee(String name, String surname, String employeeID, double salary, String company, String position, PositionLevel level) {
         this.name = name;
         this.surname = surname;
         this.employeeID = employeeID;
         this.salary = salary;
         this.company = company;
         this.position = position;
+        this.level = level;
     }
 
     public String getName() {
@@ -71,6 +73,15 @@ public class Employee {
         this.position = position;
     }
 
+    public PositionLevel getLevel() {
+        return level;
+    }
+
+    public void setLevel(PositionLevel level) {
+        this.level = level;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,7 +104,9 @@ public class Employee {
                 ", salary=" + salary +
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
+                ", level=" + level +
                 '}';
+
     }
 }
 

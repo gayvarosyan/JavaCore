@@ -48,5 +48,20 @@ public class EmployeeStorage {
             System.out.println("No employees found for company: " + company);
         }
     }
+
+    public void searchByPositionLevel(PositionLevel level) {
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getLevel() == level) {
+                System.out.println(employees[i]);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No employees found with position level: " + level);
+        }
+    }
+
 }
+
 

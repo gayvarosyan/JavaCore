@@ -7,10 +7,11 @@ public class EmployeeDemo {
     private static final Scanner scanner = new Scanner(System.in);
     private static final EmployeeStorage storage = new EmployeeStorage();
     private static final int EXIT = 0;
-    private static final int  ADD_EMPLOYEE = 1;
+    private static final int ADD_EMPLOYEE = 1;
     private static final int PRINT_ALL_EMPLOYEES = 2;
     private static final int SEARCH_EMPLOYEE_BY_ID = 3;
     private static final int SEARCH_EMPLOYEE_BY_COMPANY_NAME = 4;
+    private static final int SEARCH_EMPLOYEES_BY_POSITION_LEVEL = 5;
 
 
     public static void main(String[] args) {
@@ -57,6 +58,7 @@ public class EmployeeDemo {
         System.out.println("Please input " + PRINT_ALL_EMPLOYEES + " for PRINT ALL EMPLOYEES");
         System.out.println("Please input " + SEARCH_EMPLOYEE_BY_ID + " for SEARCH EMPLOYEE BY ID");
         System.out.println("Please input " + SEARCH_EMPLOYEE_BY_COMPANY_NAME + " for SEARCH EMPLOYEE BY COMPANY NAME");
+        System.out.println("Please input " + SEARCH_EMPLOYEES_BY_POSITION_LEVEL + " for SEARCH EMPLOYEES BY POSITION LEVEL");
     }
 
     private static void addEmployee() {
@@ -72,10 +74,18 @@ public class EmployeeDemo {
         String company = scanner.nextLine();
         System.out.print("Enter position: ");
         String position = scanner.nextLine();
+        System.out.print("Enter position level(JUNIOR, MIDDLE, LEAD): ");
+        String levelStr = scanner.nextLine().toUpperCase();
 
-        Employee emp = new Employee(name, surname, id, salary, company, position);
-        storage.add(emp);
-        System.out.println("Employee added successfully!");
+
+        try {
+            PositionLevel level = PositionLevel.valueOf(levelStr);
+            Employee emp = new Employee(name, surname, id, salary, company, position, level);
+            storage.add(emp);
+            System.out.println("Employee added successfully!");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid position level. Please enter one of: JUNIOR, MIDDLE, SENIOR, LEAD");
+        }
     }
 
     private static void printAllEmployees() {
@@ -102,4 +112,17 @@ public class EmployeeDemo {
         storage.searchByCompany(companyName);
         System.out.println();
     }
+
+    private static void searchByPositionLevel() {
+        System.out.print("Enter position level (JUNIOR, MIDDLE, SENIOR, LEAD): ");
+        try {
+            String levelStr = scanner.nextLine().trim().toUpperCase();
+            PositionLevel level = PositionLevel.valueOf(levelStr);
+            storage.searchByPositionLevel(level);
+        } catch (IllegalArgumentException e) {
+            System.out.println(" Invalid level. Try again.");
+        }
+    }
 }
+
+
